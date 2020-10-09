@@ -1,0 +1,5 @@
+services:
+    app.behat.context.book:
+        class: Behat\Context\ProductAdminContext
+        tags:
+            - { name: fob.context_service }

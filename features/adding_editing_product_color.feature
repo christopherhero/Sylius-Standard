@@ -10,8 +10,7 @@ Feature: Assigning color of an existing product
 
   Scenario: Assigning color of an existing product
     Given the "Black mug" product is tracked by the inventory
-    And I want to modify the "Black mug" product
-    When I assign "blue" color to "Dice Brewing" product
+    When I change "Black mug" product color to "blue"
     And I save my changes
     Then Product "Black mug" have "blue" color
 
