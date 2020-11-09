@@ -1,0 +1,44 @@
+sylius_grid:
+    grids:
+        app_admin_supplier:
+            driver: 
+                options:
+                    class: "%app.model.supplier.class%"
+            fields:
+                name: 
+                    type: string
+                    label: sylius.ui.name
+                email: 
+                    type: string
+                    label: sylius.ui.email    
+                products:
+                    type: twig
+                    label: sylius.ui.products
+                    path: countProducts
+                    options:
+                        template: Supplier/Grid/productCount.html.twig
+                state: 
+                    type: twig
+                    label: app.ui.state
+                    options:
+                        template: Supplier/Grid/state.html.twig
+            actions:
+                    main:
+                        create:
+                            type: create
+                    item:
+                        delete:
+                            type: delete                        
+                        update:
+                            type: update
+                        trust:
+                            type: apply_transition
+                            label: app.ui.trust
+                            options:
+                                link:
+                                    route: app_admin_supplier_trust
+                                    parameters:
+                                        id: resource.id
+                                transition: trust
+                                graph: app_supplier    
+                                class: green

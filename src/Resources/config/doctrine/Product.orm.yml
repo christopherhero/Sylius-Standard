@@ -1,0 +1,10 @@
+App\Entity\Product:
+    type: entity
+    table: sylius_product
+    manyToOne:
+        supplier:
+            targetEntity: App\Entity\Supplier
+            inversedBy: products
+            joinColumn:
+                name: supplier_id
+                referencedColumnName: id

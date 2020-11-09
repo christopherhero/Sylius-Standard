@@ -1,3 +1,25 @@
 sylius_admin_api:
     resource: "@SyliusAdminApiBundle/Resources/config/routing.yml"
     prefix: /api
+
+app_api_supplier:
+    resource: |
+        alias: app.supplier
+        section: api_admin
+        grid: app_admin_supplier
+    type: sylius.resource_api
+    prefix: /api/admin
+
+app_api_admin_supplier_trust:
+    path: /api/admin/suppliers/{id}/trust
+    methods: [PATCH]
+    defaults:
+        _controller: app.controller.supplier:applyStateMachineTransitionAction
+        _sylius:
+            state_machine:
+                graph: app_supplier
+                transition: trust
+            redirect: referer
+            flash: app.ui.supplier_trusted
+            csrf_protection: false
+        _format: json

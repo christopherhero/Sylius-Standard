@@ -1,0 +1,9 @@
+{% set color = 'blue' %}
+
+{% if data > 0 %}
+    {% set color = 'red' %}
+{% endif %}
+
+<span class="ui label {{ color }}">
+    {{ data|capitalize }}
+</span>

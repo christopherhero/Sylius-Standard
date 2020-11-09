@@ -1,0 +1,27 @@
+App\Entity\Supplier:
+    type: entity
+    table: app_supplier
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            nullable: false
+            length: 255
+        email:
+            type: string
+            nullable: false
+            length: 255        
+        state:
+            type: string
+            nullable: false
+            length: 100
+    oneToMany:
+        products:
+            targetEntity: App\Entity\Product
+            mappedBy: supplier
+            fetch: EAGER

@@ -33,3 +33,38 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+          
+    App\Context\TimeBasedChannelContext:
+        arguments:
+            - '@sylius.repository.channel'
+            - '@App\DateTime\Clock'
+        tags:
+            - { name: sylius.context.channel, priority: 1000 }
+    
+    App\ShippingCalculator\WeightBasedShippingCalculator:
+        tags:
+            -
+              {
+                  name: sylius.shipping_calculator,
+                  calculator: 'weight_based',
+                  form_type: 'App\Form\Type\ShippingCalculator\ChannelBasedWeightShippingCalculatorType',
+                  label: 'Weight based'
+              }
+    
+    App\Form\Type\Supplier\SupplierType:
+        arguments:
+            - "%app.model.supplier.class%"
+    
+    App\Menu\AdminMainMenuListener:
+        tags:
+            - { name: kernel.event_listener, event: sylius.menu.admin.main, method: addSupplierMenu }
+                
+    App\Notifier\Supplier\SupplierTrustingNotifierInterface:
+        class: App\Notifier\Supplier\EmailSupplierTrustingTrustingNotifier
+        public: true
+
+    app.form.extension.type.product:
+        class: App\Form\Extenstion\Product\ProductTypeExtension
+        tags:
+            - { name: form.type_extension, extended_type: Sylius\Bundle\ProductBundle\Form\Type\ProductType }
+

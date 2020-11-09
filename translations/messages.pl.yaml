@@ -1,0 +1,8 @@
+app:
+    ui:
+        suppliers: "Dostawcy"
+        supplier: "Dostawca"
+        new_supplier: "Nowy dostawca"
+        state: "Stan"
+        supplier_trusted: "Zaufany"
+        trust: "Zaufaj"

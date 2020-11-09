@@ -17,7 +17,7 @@ services:
       - APP_DEBUG=1
       - APP_SECRET=EDITME
       - DATABASE_URL=mysql://sylius:nopassword@mysql/sylius
-      - MAILER_URL=smtp://mailhog:1025
+      - MAILER_URL=smtp://smtp.mailtrap.io:2525?encryption=tls&auth_mode=login&username=3b78316c32a5d2&password=26f6a928ca0ebf
       - PHP_DATE_TIMEZONE=${PHP_DATE_TIMEZONE:-UTC}
     volumes:
       - .:/srv/sylius:rw,cached

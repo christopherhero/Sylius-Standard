@@ -1,0 +1,15 @@
+sylius_resource:
+    resources:
+        app.supplier:
+            driver: doctrine/orm
+            classes:
+                model: App\Entity\Supplier
+                form: App\Form\Type\Supplier\SupplierType
+sylius_product:
+    resources:
+        product:
+            classes:
+                model: App\Entity\Product
+            translation:
+                classes:
+                    model: App\Entity\ProductTranslation

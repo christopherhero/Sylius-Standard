@@ -1,0 +1,3 @@
+App\Entity\ProductTranslation:
+    type: entity
+    table: sylius_product_translation

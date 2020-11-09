@@ -1,0 +1,8 @@
+app:
+    ui:
+        suppliers: "Suppliers"
+        supplier: "Supplier"
+        new_supplier: "New supplier"
+        state: "State"
+        supplier_trusted: "Trusted"
+        trust: "Trust"
